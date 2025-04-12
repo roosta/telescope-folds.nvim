@@ -1,0 +1,46 @@
+=======
+*telescope-folds.txt*   Plugin that lets you fuzzy search for folds in file
+Version:   0.1
+Author:    Daniel Berg <mail@roosta.sh>
+==============================================================================
+REQUIREMENTS                                        *telescope-folds-requirements*
+
+telescope.nvim is required for this plugin to work.
+
+https://github.com/nvim-telescope/telescope.nvim
+
+==============================================================================
+USAGE INSTRUCTIONS                                         *telescope-folds-usage*
+
+:Folds                                                                  *:Folds*
+
+Open a Telescope picker and search for folds in file. On selection,
+telescope-folds will move you to that fold's line number and open just enough
+folds to show the fold you selected (|zv|).
+
+Lua API:
+>
+    require('telescope').extensions.folds.folds()
+<
+Keymaps:
+>
+    vim.cmd([[nnoremap <leader>jf :Folds<CR>]])
+
+    -- Lua
+    vim.keymap.set('n', '<leader>jf', ':Folds<CR>', {
+      noremap = true,
+      silent = true,
+    })
+
+    -- or
+    vim.keymap.set('n', '<leader>jf', function()
+      require('telescope').extensions.folds.folds()
+    end, { noremap = true, silent = true })
+<
+==============================================================================
+LICENSE                                                  *telescope-folds-license*
+
+MIT
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
